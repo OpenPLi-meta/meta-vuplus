@@ -6,7 +6,7 @@ PV="17.1"
 SRCDATE = "20210428"
 SRCDATE_PR = "r0"
 
-PR="${SRCDATE}.${SRCDATE_PR}.1"
+PR_append = ".1"
 
 SRC_URI = " \
 	http://code.vuplus.com/download/release/wifi/vuplus-wifi-util-${MACHINE}-${PV}-${SRCDATE}.${SRCDATE_PR}.tar.gz \
