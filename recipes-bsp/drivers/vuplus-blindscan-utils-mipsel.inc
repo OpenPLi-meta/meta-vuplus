@@ -10,8 +10,8 @@ PACKAGES = "vuplus-blindscan-utils-${MACHINE}-dbg \
            "
 
 PROVIDES += "virtual/blindscan-dvbs virtual/blindscan-dvbc"
-RPROVIDES_vuplus-blindscan-dvbs-utils-${MACHINE} += "virtual/blindscan-dvbs"
-RPROVIDES_vuplus-blindscan-dvbc-utils-${MACHINE} += "virtual/blindscan-dvbc"
+RPROVIDES:vuplus-blindscan-dvbs-utils-${MACHINE} += "virtual/blindscan-dvbs"
+RPROVIDES:vuplus-blindscan-dvbc-utils-${MACHINE} += "virtual/blindscan-dvbc"
 
 PV = "4.4"
 PR = "r5"
@@ -48,14 +48,14 @@ do_install() {
         done
 }
 
-FILES_vuplus-blindscan-dvbs-utils-${MACHINE} = "\
+FILES:vuplus-blindscan-dvbs-utils-${MACHINE} = "\
         ${bindir}/vuplus_blindscan \
         ${bindir}/vuplus_6211_blindscan \
         ${bindir}/vuplus_6222_blindscan \
         ${bindir}/vuplus_bcm7346_blindscan \
         "
 
-FILES_vuplus-blindscan-dvbc-utils-${MACHINE} = "\
+FILES:vuplus-blindscan-dvbc-utils-${MACHINE} = "\
         ${bindir}/tda1002x \
         ${bindir}/ssh108 \
         ${bindir}/ssh108_t2_scan \
@@ -66,4 +66,4 @@ FILES_vuplus-blindscan-dvbc-utils-${MACHINE} = "\
         "
 
 # tda1002x is stripped, just that one
-INSANE_SKIP_${PN} = "already-stripped"
+INSANE_SKIP:${PN} = "already-stripped"

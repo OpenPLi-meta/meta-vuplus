@@ -9,7 +9,7 @@ SRC_URI[sha256sum] = "74648ddfe77e95e06ca3ab1b398ff26f7dd317767dbab3d27ebdd2b9d3
 
 LIC_FILES_CHKSUM = "file://${WORKDIR}/linux/COPYING;md5=d7810fab7487fb0aad327b76f1be7cd7"
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/linux-vuplus-${KV}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/linux-vuplus-${KV}:"
 
 KSRC_VER = "4.1-1.9"
 SRC_URI += "https://source.mynonpublic.com/vuplus/release/kernel/stblinux-${KSRC_VER}.tar.bz2 \
@@ -61,13 +61,13 @@ KERNEL_OUTPUT = "arch/${ARCH}/boot/${KERNEL_IMAGETYPE}"
 KERNEL_OBJECT_SUFFIX = "ko"
 KERNEL_IMAGEDEST = "tmp"
 
-FILES_${KERNEL_PACKAGE_NAME}-image = "/${KERNEL_IMAGEDEST}/zImage"
+FILES:${KERNEL_PACKAGE_NAME}-image = "/${KERNEL_IMAGEDEST}/zImage"
 
-do_configure_prepend() {
+do_configure:prepend() {
 	oe_machinstall -m 0644 ${WORKDIR}/${MACHINE}_defconfig ${WORKDIR}/defconfig
 }
 
-kernel_do_install_append() {
+kernel_do_install:append() {
         install -d ${D}/${KERNEL_IMAGEDEST}
         install -m 0755 ${KERNEL_OUTPUT} ${D}/${KERNEL_IMAGEDEST}
 }
@@ -77,7 +77,7 @@ kernel_do_compile() {
         oe_runmake ${KERNEL_IMAGETYPE_FOR_MAKE} ${KERNEL_ALT_IMAGETYPE} CC="${KERNEL_CC}" LD="${KERNEL_LD}"
 }
 
-pkg_postinst_kernel-image () {
+pkg_postinst:kernel-image () {
         if [ -d /proc/stb ] ; then
                 dd if=/${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE} of=/dev/${MTD_KERNEL}
         fi
@@ -85,6 +85,6 @@ pkg_postinst_kernel-image () {
         true
 }
 
-pkg_postrm_kernel-image () {
+pkg_postrm:kernel-image () {
 }
 

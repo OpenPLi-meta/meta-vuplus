@@ -9,7 +9,7 @@ SRC_URI[sha256sum] = "47799db9e2658906e532981ec8111a915426b8453762561029733f2406
 
 LIC_FILES_CHKSUM = "file://${WORKDIR}/linux/COPYING;md5=d7810fab7487fb0aad327b76f1be7cd7"
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/linux-vuplus-${KV}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/linux-vuplus-${KV}:"
 
 SRC_URI += "https://source.mynonpublic.com/vuplus/release/kernel/stblinux-${KV}.tar.bz2 \
 	file://nfs-max-rwsize-8k.patch \
@@ -46,13 +46,13 @@ KERNEL_OUTPUT_DIR = "."
 KERNEL_OBJECT_SUFFIX = "ko"
 KERNEL_IMAGEDEST = "/tmp"
 
-FILES_${KERNEL_PACKAGE_NAME}-image = "${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}.gz"
+FILES:${KERNEL_PACKAGE_NAME}-image = "${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}.gz"
 
-do_configure_prepend() {
+do_configure:prepend() {
 	oe_machinstall -m 0644 ${WORKDIR}/${MACHINE}_defconfig ${WORKDIR}/defconfig
 }
 
-kernel_do_install_append() {
+kernel_do_install:append() {
 	install -d ${D}/${KERNEL_IMAGEDEST}
 	install -m 0755 ${KERNEL_OUTPUT} ${D}${KERNEL_IMAGEDEST}
 	gzip ${D}${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}
@@ -66,7 +66,7 @@ kernel_do_compile() {
 	fi
 }
 
-pkg_postinst_kernel-image () {
+pkg_postinst:kernel-image () {
 	if [ -d /proc/stb ] ; then
 		flash_eraseall /dev/mtd1
 		nandwrite -p /dev/mtd1 /${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}.gz

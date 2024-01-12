@@ -7,7 +7,7 @@ DEPENDS_vuduo2 = "libgles-${MACHINE}"
 DEPENDS_vusolo2 = "libgles-${MACHINE}"
 DEPENDS_vusolose = "libgles-${MACHINE}"
 
-RDEPENDS_${PN} = "libgles-${MACHINE}"
+RDEPENDS:${PN} = "libgles-${MACHINE}"
 
 PV = "0.1.1"
 PR = "${SRCDATE}.${SRCDATE_PR}"

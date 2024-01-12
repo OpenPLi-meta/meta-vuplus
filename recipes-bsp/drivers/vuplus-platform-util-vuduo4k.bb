@@ -1,17 +1,17 @@
 require vuplus-platform-util.inc
 
-RDEPENDS_${PN} += "gptfdisk mmc-utils"
+RDEPENDS:${PN} += "gptfdisk mmc-utils"
 
 PV="18.1"
 SRCDATE = "20191218"
 SRCDATE_PR = "r0"
-PR_append = ".2"
+PR:append = ".2"
 
 SRC_URI += "\
 	file://bp3flash.tar.gz \
 "
 
-do_install_append() {
+do_install:append() {
 	install -m 0755 ${WORKDIR}/bp3flash.py ${D}${bindir}
 }
 

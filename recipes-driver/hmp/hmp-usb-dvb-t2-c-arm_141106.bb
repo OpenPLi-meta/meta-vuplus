@@ -17,7 +17,7 @@ do_fetch[depends] += "virtual/kernel:do_package_write_ipk"
 inherit module
 
 PROVIDES += "hmp-usb-dvb-t2-c-arm"
-RPROVIDES_${PN} = "kernel-module-dvb-usb-dvbsky-${KERNEL_VERSION} \
+RPROVIDES:${PN} = "kernel-module-dvb-usb-dvbsky-${KERNEL_VERSION} \
                    kernel-module-dvbsky-m88rs6000-${KERNEL_VERSION} \
                    kernel-module-dvbsky-m88ds3103-${KERNEL_VERSION} \
                    kernel-module-sit2fe-${KERNEL_VERSION} \
@@ -34,7 +34,7 @@ PACKAGES = "${PN} \
             ${PN}-dev \
             ${PN}-dbg \
             "
-FILES_${PN} = " \
+FILES:${PN} = " \
 	/lib/firmware/dvb-fe-ds300x.fw \
 	/lib/firmware/dvb-fe-ds3103.fw \
 	/lib/firmware/dvb-fe-rs6000.fw \
@@ -45,7 +45,7 @@ FILES_${PN} = " \
 	/lib/modules/*/kernel/drivers/media/usb/dvb-usb-v2/dvb-usb-dvbsky.ko \
 	"
 
-FILES_${PN}-dev = " \
+FILES:${PN}-dev = " \
 	/lib/modules/*/modules.* \
 	/lib/firmware/* \
        "
@@ -65,7 +65,7 @@ S = "${WORKDIR}/media_build-bst-14"
 
 EXTRA_OEMAKE = "LINUX_SRC=${STAGING_KERNEL_DIR} OUTDIR=${STAGING_KERNEL_BUILDDIR}"
 
-do_configure_prepend() {
+do_configure:prepend() {
 	CUR=`pwd`
 	cp ${WORKDIR}/sit2_op.o_${SRCDATE_BIN}_arm ${S}/v4l/sit2_op.o
 	unset CFLAGS CPPFLAGS CXXFLAGS LDFLAGS
@@ -91,8 +91,8 @@ do_install() {
 	install -m 0644 ${S}/dvbsky-firmware/*.fw ${D}${base_libdir}/firmware/
 }
 
-pkg_postinst_${PN} () {
+pkg_postinst:${PN} () {
 	depmod -a
 }
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/hmp-usb-dvb-t2-c-v03arm:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/hmp-usb-dvb-t2-c-v03arm:"

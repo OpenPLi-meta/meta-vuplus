@@ -9,7 +9,7 @@ SRC_URI[sha256sum] = "ef7fb307582ff243aacff8a13025fe028634aaf650ada309991ae03622
 
 LIC_FILES_CHKSUM = "file://${WORKDIR}/linux/COPYING;md5=d7810fab7487fb0aad327b76f1be7cd7"
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/linux-vuplus-${KV}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/linux-vuplus-${KV}:"
 
 SRC_URI += "https://source.mynonpublic.com/vuplus/release/kernel/stblinux-${KV}.tar.bz2 \
 	file://nfs-max-rwsize-8k.patch \
@@ -48,22 +48,22 @@ KERNEL_IMAGEDEST = "tmp"
 KERNEL_EXTRA_ARGS = "EXTRA_CFLAGS=-Wno-attribute-alias"
 KERNEL_PACKAGE_NAME = "kernel"
 
-FILES_${KERNEL_PACKAGE_NAME}-image = "${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}.gz"
+FILES:${KERNEL_PACKAGE_NAME}-image = "${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}.gz"
 
-do_configure_prepend() {
+do_configure:prepend() {
 	oe_machinstall -m 0644 ${WORKDIR}/${MACHINE}_defconfig ${WORKDIR}/defconfig
 	if ${@bb.utils.contains("MACHINE_FEATURES", 'dvbproxy', 'true', 'false', d)}; then
 		sed -i "s/bmem=220M@512M/bmem=384M@512M/g" ${WORKDIR}/defconfig
 	fi
 }
 
-kernel_do_install_append() {
+kernel_do_install:append() {
 	${STRIP} ${D}/${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}-${KERNEL_VERSION}
 	gzip -9c ${D}/${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}-${KERNEL_VERSION} > ${D}/${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}.gz
 	rm ${D}/${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}-${KERNEL_VERSION}
 }
 
-pkg_postinst_kernel-image () {
+pkg_postinst:kernel-image () {
 	if [ -d /proc/stb ] ; then
 		flash_eraseall /dev/mtd2
 		nandwrite -p /dev/mtd2 /${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}.gz

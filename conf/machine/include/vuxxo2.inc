@@ -53,14 +53,14 @@ IMAGEDIR ?= "${MACHINE}"
 IMGDEPLOYDIR ?= "${DEPLOY_DIR_IMAGE}"
 EXTRA_IMAGECMD_COMPAT = " --eraseblock=0x20000 -n -l "
 
-IMAGE_CMD_ubifs_prepend = " \
+IMAGE_CMD:ubifs:prepend = " \
 	cp -f ${IMAGE_ROOTFS}/tmp/vmlinux.gz ${IMGDEPLOYDIR}/${IMAGE_NAME}.vmlinux.gz; \
 	cp -f ${IMAGE_ROOTFS}/boot/initrd_cfe_auto.bin ${IMGDEPLOYDIR}/${IMAGE_NAME}.initrd_cfe_auto.bin; \
 	rm -rf ${IMAGE_ROOTFS}/boot/*; \
 	rm -Rf ${IMAGE_ROOTFS}/tmp/*; \
 "
 
-IMAGE_CMD_ubi_append = " \
+IMAGE_CMD:ubi:append = " \
 	mkdir -p ${IMGDEPLOYDIR}/vuplus/${UPDATE_DIR}; \
 	cp -f ${IMGDEPLOYDIR}/${IMAGE_NAME}.rootfs.ubi ${IMGDEPLOYDIR}/vuplus/${UPDATE_DIR}/root_cfe_auto.bin; \
 	cp -f ${IMGDEPLOYDIR}/${IMAGE_NAME}.vmlinux.gz ${IMGDEPLOYDIR}/vuplus/${UPDATE_DIR}/kernel_cfe_auto.bin; \
@@ -72,15 +72,15 @@ IMAGE_CMD_ubi_append = " \
 "
 
 MACHINE_FEATURES += "alsa usbhost wlan 3dtv switchoff osdposition hdmicec fan vuplus-mipsel"
-MACHINE_FEATURES_remove_vuzero = "vuplus-mipsel"
+MACHINE_FEATURES:remove_vuzero = "vuplus-mipsel"
 
 OPENPLI_FEATURES += "kodi"
-OPENPLI_FEATURES_remove_vuzero = "kodi"
+OPENPLI_FEATURES:remove_vuzero = "kodi"
 
 # xbmc/kodi-support
-DEPENDS_append_pn-kodi = " vuplus-kodi-${MACHINE}"
-RDEPENDS_kodi_append = " vuplus-kodi-${MACHINE}"
+DEPENDS:append:pn-kodi = " vuplus-kodi-${MACHINE}"
+RDEPENDS:kodi:append = " vuplus-kodi-${MACHINE}"
 
-require conf/machine/include/tune-mips32.inc
+require conf/machine/include/mips/tune-mips32.inc
 
 HOSTTOOLS += "sshpass"

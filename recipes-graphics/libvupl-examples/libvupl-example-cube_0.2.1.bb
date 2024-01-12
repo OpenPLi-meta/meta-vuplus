@@ -10,7 +10,7 @@ COMPATIBLE_MACHINE = "^(vusolose|vusolo2|vuduo2|vusolo4k|vuuno4k|vuuno4kse|vuult
 PR = "r1"
 
 DEPENDS = "libvupl-${MACHINE} libgles-${MACHINE}"
-RDEPENDS_${PN} = "libvupl-${MACHINE} libgles-${MACHINE}"
+RDEPENDS:${PN} = "libvupl-${MACHINE} libgles-${MACHINE}"
 
 SRC_URI = "http://code.vuplus.com/download/release/support/${BPN}-${PV}.${PR}.tar.gz"
 
@@ -21,7 +21,7 @@ EXTRA_OECMAKE += "-DVUPLUS=1"
 inherit cmake
 
 # fix old source for recent egl headers
-do_configure_prepend() {
+do_configure:prepend() {
 	sed -i "s/-DVUPLUS/-DVUPLUS -DEGL_NO_X11/g" ${S}/Common/CMakeLists.txt
 	sed -i "s/-DVUPLUS/-DVUPLUS -DEGL_NO_X11/g" ${S}/Simple_VertexShader/CMakeLists.txt
 }

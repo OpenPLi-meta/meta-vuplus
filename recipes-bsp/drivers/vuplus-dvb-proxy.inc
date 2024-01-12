@@ -22,7 +22,7 @@ do_install() {
         done
 }
 
-pkg_postinst_${PN} () {
+pkg_postinst:${PN} () {
         if [ -d /proc/stb ]; then
                 depmod -a
         fi
@@ -30,4 +30,4 @@ pkg_postinst_${PN} () {
 }
 
 PACKAGE_ARCH := "${MACHINE_ARCH}"
-FILES_${PN} = "/"
+FILES:${PN} = "/"

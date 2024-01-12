@@ -5,7 +5,7 @@ inherit python3native
 LICENSE = "CLOSED"
 
 DEPENDS = "python3-native"
-RDEPENDS_${PN} = "vuplus-bluetooth-util libusb-compat"
+RDEPENDS:${PN} = "vuplus-bluetooth-util libusb-compat"
 
 PN = "enigma2-plugin-systemplugins-bluetoothsetup"
 PR = "${SRCDATE}-py3.${SRCDATE_PR}"
@@ -27,12 +27,12 @@ do_install() {
 	cp -r --preserve=mode,links ${S}/* ${D}${BLUETOOTH_PLUGIN_PATH}
 }
 
-FILES_${PN} = "${BLUETOOTH_PLUGIN_PATH}"
-FILES_${PN}-src = "${BLUETOOTH_PLUGIN_PATH}/*.py"
+FILES:${PN} = "${BLUETOOTH_PLUGIN_PATH}"
+FILES:${PN}-src = "${BLUETOOTH_PLUGIN_PATH}/*.py"
 
 #do_populate_sysroot[noexec] = "1"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-INSANE_SKIP_${PN} = "already-stripped file-rdeps"
+INSANE_SKIP:${PN} = "already-stripped file-rdeps"
 

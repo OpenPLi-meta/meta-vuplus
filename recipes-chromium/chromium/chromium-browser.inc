@@ -11,7 +11,7 @@ SRC_URI = "https://source.mynonpublic.com/vuplus/chromium/chromium-vuplus_${MACH
 #PREFERRED_VERSION_nss = "3.17.3"
 
 #DEPENDS = "nss libxslt"
-RDEPENDS_${PN} = "libcrypto-compat nspr nss libxslt libudev libcurl"
+RDEPENDS:${PN} = "libcrypto-compat nspr nss libxslt libudev libcurl"
 
 do_install() {
 	install -d ${D}/usr/local/chromium
@@ -30,11 +30,11 @@ do_package_qa() {
 }
 
 #PROVIDES += "chromium-browser"
-#RPROVIDES_${PN} += "chromium-browser"
+#RPROVIDES:${PN} += "chromium-browser"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-FILES_${PN} = "/"
+FILES:${PN} = "/"
 
 INHIBIT_PACKAGE_STRIP = "1"
 

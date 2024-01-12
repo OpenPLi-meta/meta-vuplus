@@ -4,7 +4,7 @@ LICENSE = "CLOSED"
 
 PV = "1.0"
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/vuplus-kexec-${MACHINE}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/vuplus-kexec-${MACHINE}:"
 
 SRC_URI = " \
 	file://kernel_auto.bin \
