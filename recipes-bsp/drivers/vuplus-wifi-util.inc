@@ -3,7 +3,7 @@ LICENSE = "CLOSED"
 #require conf/license/license-close.inc
 
 PROVIDES += "vuplus-wifi-util"
-RPROVIDES_${PN} += "vuplus-wifi-util"
+RPROVIDES:${PN} += "vuplus-wifi-util"
 
 PV="16.1"
 PR="${SRCDATE}.${SRCDATE_PR}"
@@ -18,7 +18,7 @@ do_package_qa() {
 }
 
 PACKAGE_ARCH := "${MACHINE_ARCH}"
-FILES_${PN}="/"
+FILES:${PN}="/"
 
 do_install() {
 	install -d ${D}${bindir}
@@ -36,5 +36,5 @@ do_install() {
 	install -m 0644 ${S}/bcm43569_iton.nvm ${D}/lib/firmware/bcm43569/
 }
 
-INSANE_SKIP_${PN} = "already-stripped"
+INSANE_SKIP:${PN} = "already-stripped"
 

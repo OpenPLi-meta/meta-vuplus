@@ -10,7 +10,7 @@ SRC_URI = " \
         file://turnoff_power \
 "
 
-DEPENDS_append = " update-rc.d-native"
+DEPENDS:append = " update-rc.d-native"
 
 do_install() {
         install -d ${D}${sysconfdir}/init.d/

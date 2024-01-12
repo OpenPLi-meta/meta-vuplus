@@ -14,7 +14,7 @@ INHIBIT_PACKAGE_STRIP = "1"
 
 inherit module-base
 
-FILES_${PN} = "/"
+FILES:${PN} = "/"
 
 do_install() {
 	install -d ${D}/lib/modules/${KV}/extra
@@ -27,11 +27,11 @@ do_install() {
 	done
 }
 
-pkg_postinst_${PN} () {
+pkg_postinst:${PN} () {
         if [ -d /proc/stb ]; then
 		depmod -a
         fi
         true
 }
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/vuplus-dvb-modules:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/vuplus-dvb-modules:"

@@ -8,9 +8,9 @@ PV = "1.1"
 PR = "${SRCDATE}"
 SRC_URI = "https://source.mynonpublic.com/vuplus/release/support/webkit-hbbtv-browser_${MACHINE}_${SRCDATE}.tar.gz"
 
-RDEPENDS_${PN} = "webkit-gtk libudev"
+RDEPENDS:${PN} = "webkit-gtk libudev"
 
-do_install_append() {
+do_install:append() {
 	install -d ${D}/usr/bin
 	install -d ${D}/usr/lib/mozilla/plugins
 	install -d ${D}/home/root
@@ -26,7 +26,7 @@ do_install_append() {
 do_package_qa() {
 }
 
-#pkg_postinst_${PN} () {
+#pkg_postinst:${PN} () {
 #	if [ -z "$D" ]; then
 #		if [ ! -f /lib/libudev.so.0 ]; then
 #			ln -s /lib/libudev.so.1 /lib/libudev.so.0
@@ -35,10 +35,10 @@ do_package_qa() {
 #}
 
 PROVIDES += "webkit-hbbtv-browser"
-RPROVIDES_${PN} += "webkit-hbbtv-browser"
+RPROVIDES:${PN} += "webkit-hbbtv-browser"
 
 PACKAGE_ARCH := "${MACHINE_ARCH}"
 
-FILES_${PN} = "/"
+FILES:${PN} = "/"
 
-INSANE_SKIP_${PN} += "already-stripped"
+INSANE_SKIP:${PN} += "already-stripped"

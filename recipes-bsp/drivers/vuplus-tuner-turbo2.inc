@@ -13,9 +13,9 @@ SRC_URI = " \
 "
 
 DEPENDS += "virtual/kernel module-init-tools"
-RDEPENDS_${PN} += "module-init-tools-depmod"
+RDEPENDS:${PN} += "module-init-tools-depmod"
 
-RRECOMMENDS_${PN} = " \
+RRECOMMENDS:${PN} = " \
     kernel-module-dvb-usb \
     kernel-module-dvb-usb-v2 \
     kernel-module-cypress-firmware \
@@ -36,7 +36,7 @@ do_install() {
     install -m 0755 "${S}/vuplus_turbo2_t" "${D}/${bindir}"
 }
 
-pkg_postinst_${PN} () {
+pkg_postinst:${PN} () {
     if [ -d /proc/stb ]; then
         depmod -a
     fi
@@ -44,7 +44,7 @@ pkg_postinst_${PN} () {
 }
 
 PACKAGE_ARCH := "${MACHINE_ARCH}"
-FILES_${PN} = "/"
+FILES:${PN} = "/"
 
 SRC_URI[binfw.md5sum] = "aa1be089011f3bdc15d88d7f70dd4c7e"
 SRC_URI[binfw.sha256sum] = "9a130ee3a67994029eec37366a4cce67031d6d5e8bfda0ed8b6ce59983bbb376"

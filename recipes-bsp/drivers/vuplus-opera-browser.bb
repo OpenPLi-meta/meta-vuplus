@@ -5,8 +5,8 @@ SECTION = "base"
 
 DEPENDS = "mpfr gmp"
 DEPENDS += "${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer1.0", "gstreamer", d)}"
-RREPLACES_${PN} = "vuplus-opera-browser-util"
-RCONFLICTS_${PN} = "vuplus-opera-browser-util"
+RREPLACES:${PN} = "vuplus-opera-browser-util"
+RCONFLICTS:${PN} = "vuplus-opera-browser-util"
 PACKAGES = "${PN}"
 
 SRC_DATE = "20181116_0"
@@ -44,7 +44,7 @@ do_install() {
 	cp -avR --no-preserve=ownership ${S}/dfb/usr/lib/* ${D}/usr/lib/
 }
 
-do_install_append() {
+do_install:append() {
 	GST_PREFERED_VERSION="${@bb.utils.contains("GST_VERSION", "1.0", "1.4.5", "0.10.36.1", d)}"
 	mv ${D}/usr/local/hbb-browser/root/jsplugins/ooif-gst-$GST_PREFERED_VERSION.so ${D}/usr/local/hbb-browser/root/jsplugins/ooif.so
 	rm -f ${D}/usr/local/hbb-browser/root/jsplugins/ooif-gst*.so
@@ -59,7 +59,7 @@ sysroot_stage_all() {
 }
 
 INHIBIT_PACKAGE_STRIP = "1"
-PRIVATE_LIBS_${PN} = "libopera_hbbtv.so \
+PRIVATE_LIBS:${PN} = "libopera_hbbtv.so \
 libdsmcc.so \
 libdirect-1.4.so.6 \
 libdirectfb-1.4.so.6 \
@@ -78,4 +78,4 @@ libidirectfbimageprovider_jpeg.so \
 libicoreresourcemanager_test.so \
 libdirectfb_vuplus.so"
 
-FILES_${PN} = "/usr/lib /usr/local"
+FILES:${PN} = "/usr/lib /usr/local"

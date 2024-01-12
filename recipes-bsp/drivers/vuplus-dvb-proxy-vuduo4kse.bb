@@ -5,7 +5,7 @@ KV = "4.1.45"
 SRCDATE = "20210527"
 SRCDATE_PR = "r0"
 
-pkg_postinst_${PN}_append () {
+pkg_postinst:${PN}:append () {
 	if [ ! -f $D/lib/modules/${KERNEL_VERSION}/extra/dvb-bcm.ko ]; then
 		ln -s /lib/modules/${KERNEL_VERSION}/extra/dvb-bcm7444.ko $D/lib/modules/${KERNEL_VERSION}/extra/dvb-bcm.ko
 	fi

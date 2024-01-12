@@ -4,7 +4,7 @@ PRIORITY = "required"
 LICENSE = "CLOSED"
 #require conf/license/license-close.inc
 
-RDEPENDS_${PN} = "vuplus-webkithbbtv-dumpait webkit-hbbtv-browser libupnp"
+RDEPENDS:${PN} = "vuplus-webkithbbtv-dumpait webkit-hbbtv-browser libupnp"
 
 PV = "1.1"
 PR = "20170105.r0"
@@ -12,7 +12,7 @@ SRC_URI = "https://source.mynonpublic.com/vuplus/release/support/webkit-hbbtv-pl
 
 S = "${WORKDIR}"
 
-do_install_append() {
+do_install:append() {
     install -d ${D}/usr/bin
     install -d ${D}/usr/lib/enigma2/python/Plugins/Extensions/WebkitHbbTV
 
@@ -24,9 +24,9 @@ do_package_qa() {
 }
 
 PROVIDES += "enigma2-plugin-extensions-webkithbbtv"
-RPROVIDES_${PN} += "enigma2-plugin-extensions-webkithbbtv"
+RPROVIDES:${PN} += "enigma2-plugin-extensions-webkithbbtv"
 
-FILES_${PN} = "/"
+FILES:${PN} = "/"
 
 
 SRC_URI[md5sum] = "8b93c2f013934658daa2162cf58e3b71"

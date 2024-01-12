@@ -14,8 +14,8 @@ PR = "r1"
 PV = "git${SRCPV}"
 PKGV = "git${GITPKGV}"
 
-RDEPENDS_${PN}  = "vuplus-opera-browser vuplus-hbbtv-dumpait"
-FILES_${PN}     = "/usr/lib/enigma2/python/Plugins/Extensions/HbbTV/* \
+RDEPENDS:${PN}  = "vuplus-opera-browser vuplus-hbbtv-dumpait"
+FILES:${PN}     = "/usr/lib/enigma2/python/Plugins/Extensions/HbbTV/* \
         /usr/lib/enigma2/python/Components/Sources/* \
         /usr/lib/enigma2/python/Components/Converter/* \
 "
@@ -36,6 +36,6 @@ do_install() {
 	python3 -O -m compileall ${D}/usr/lib/enigma2/python/Plugins/
 }
 
-do_install_append() {
+do_install:append() {
 	rm -rf ${D}/usr/src
 }

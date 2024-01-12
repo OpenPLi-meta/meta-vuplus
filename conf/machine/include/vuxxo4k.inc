@@ -49,7 +49,7 @@ IMAGE_FSTYPES ?= "tar.bz2"
 IMAGEDIR ?= "${MACHINE}"
 IMGDEPLOYDIR ?= "${DEPLOY_DIR_IMAGE}"
 
-IMAGE_CMD_tar_prepend = " \
+IMAGE_CMD:tar:prepend = " \
 		mkdir -p ${IMGDEPLOYDIR}/vuplus/${UPDATE_DIR}; \
 		cp -f ${IMAGE_ROOTFS}/tmp/zImage ${IMGDEPLOYDIR}/vuplus/${UPDATE_DIR}/kernel_auto.bin; \
 		cp -f ${IMAGE_ROOTFS}/boot/initrd_auto.bin ${IMGDEPLOYDIR}/vuplus/${UPDATE_DIR}/initrd_auto.bin; \
@@ -70,8 +70,8 @@ MACHINE_FEATURES += "alsa usbhost wlan 3dtv switchoff osdposition hdmicec vuplus
 OPENPLI_FEATURES += "kodi"
 
 # xbmc/kodi-support
-DEPENDS_append_pn-kodi = " vuplus-kodi-${MACHINE}"
-RDEPENDS_kodi_append = " vuplus-kodi-${MACHINE}"
+DEPENDS:append:pn-kodi = " vuplus-kodi-${MACHINE}"
+RDEPENDS:kodi:append = " vuplus-kodi-${MACHINE}"
 
 require conf/machine/include/arm/arch-armv7a.inc
 
