@@ -49,7 +49,7 @@ FILES:${PN}-dev = " \
 	/lib/modules/*/modules.* \
 	/lib/firmware/* \
        "
-SRC_URI = "http://dvbsky.net/download/linux/media_build-bst-${SRCDATE}.tar.gz \
+SRC_URI = "file://media_build-bst-${SRCDATE}.tar.gz \
            file://vu_kernel_4.1.20.patch \
            file://defconfig \
            file://sit2_op.o_${SRCDATE_BIN}_arm \
