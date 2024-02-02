@@ -50,7 +50,7 @@ FILES_${PN}-dev = " \
 	/lib/firmware/* \
        "
 
-SRC_URI = "http://dvbsky.net/download/linux/media_build-bst-14-${SRCDATE}.tar.gz \
+SRC_URI = "file://media_build-bst-14-${SRCDATE}.tar.gz \
            file://fix-strip.patch;patch=1 \
            file://rename_dvb-usb-v2.patch \
            file://vu_adapter_adjustment.patch \
