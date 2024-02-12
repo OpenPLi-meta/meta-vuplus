@@ -16,7 +16,6 @@ SRC_URI += "http://code.vuplus.com/download/release/kernel/stblinux-${KV}.tar.bz
 	file://rt2800usb_fix_warn_tx_status_timeout_to_dbg.patch \
 	file://linux-tcp_output.patch \
 	file://linux-3.13-gcc-4.9.3-build-error-fixed.patch \
-	file://kernel-add-support-for-gcc-5.patch \
 	file://rtl8712-fix-warnings.patch \
 	file://0001-Support-TBS-USB-drivers-3.13.patch \
 	file://0001-STV-Add-PLS-support.patch \
@@ -24,13 +23,9 @@ SRC_URI += "http://code.vuplus.com/download/release/kernel/stblinux-${KV}.tar.bz
 	file://0001-stv090x-optimized-TS-sync-control.patch \
 	file://0002-mips-kernel-fpu-gcc7.patch \
 	file://0003-mips-kernel-ilog2-gcc7.patch \
-	file://kernel-gcc6.patch \
-	file://kernel-gcc7.patch \
 	file://2-2-stv090x-on-tuning-lock-return-correct-tuned-paramaters-like-freq-sr-fec-rolloff-etc.patch \
 	file://hvr-9x5-19x5-22x5-kernel-3.13.patch \
-	file://kernel-gcc8.patch \
 	${@bb.utils.contains("MACHINE_FEATURES", "dvbproxy", "file://linux_dvb_adapter.patch", "", d)} \
-	file://kernel-add-support-for-gcc9.patch \
 	file://${MACHINE}_defconfig \
 	"
 
