@@ -1,5 +1,5 @@
 DESCRIPTION = "Linux kernel for ${MACHINE}"
-LICENSE = "GPLv2"
+LICENSE = "GPL-2.0-only"
 SECTION = "kernel"
 KV = "3.14.28"
 PR_INC = ".4"
@@ -24,13 +24,9 @@ SRC_URI += "http://code.vuplus.com/download/release/kernel/stblinux-${KSRC_VER}.
 	file://0001-stv090x-optimized-TS-sync-control.patch \
 	file://2-2-stv090x-on-tuning-lock-return-correct-tuned-paramaters-like-freq-sr-fec-rolloff-etc.patch \
 	${@bb.utils.contains("MACHINE_FEATURES", "dvbproxy", "file://linux_dvb_adapter.patch", "", d)} \
-	file://kernel-gcc6.patch \
-	file://kernel-gcc7.patch \
-	file://kernel-gcc8.patch \
 	file://0003-mips-kernel-ilog2-gcc7.patch \
 	file://0003-3.x-uaccess-dont-mark-register-as-const.patch \
 	file://0004-make-yyloc-declaration-extern.patch \
-	file://kernel-add-support-for-gcc9.patch \
 	file://0006-makefile-disable-warnings.patch \
 	file://defconfig \
 	"
@@ -46,10 +42,6 @@ KERNEL_OBJECT_SUFFIX = "ko"
 KERNEL_IMAGEDEST = "tmp"
 
 FILES:${KERNEL_PACKAGE_NAME}-image = "/${KERNEL_IMAGEDEST}/zImage"
-
-do_configure:prepend() {
-	oe_machinstall -m 0644 ${WORKDIR}/${MACHINE}_defconfig ${WORKDIR}/defconfig
-}
 
 kernel_do_install:append() {
         install -d ${D}/${KERNEL_IMAGEDEST}

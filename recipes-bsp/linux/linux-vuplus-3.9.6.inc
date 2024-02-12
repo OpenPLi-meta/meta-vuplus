@@ -1,5 +1,5 @@
 DESCRIPTION = "Linux kernel for ${MACHINE}"
-LICENSE = "GPLv2"
+LICENSE = "GPL-2.0-only"
 SECTION = "kernel"
 KV = "3.9.6"
 PR_INC = ".5"
@@ -16,7 +16,6 @@ SRC_URI += "http://code.vuplus.com/download/release/kernel/stblinux-${KV}.tar.bz
 	file://fix_fuse_for_linux_mips_3-9.patch \
 	file://rt2800usb_fix_warn_tx_status_timeout_to_dbg.patch \
 	file://linux-3.9-gcc-4.9.3-build-error-fixed.patch \
-	file://kernel-add-support-for-gcc-5.patch \
 	file://rtl8712-fix-warnings.patch \
 	file://rtl8187se-fix-warnings.patch \
 	file://0001-Support-TBS-USB-drivers-3.9.patch \
@@ -25,11 +24,7 @@ SRC_URI += "http://code.vuplus.com/download/release/kernel/stblinux-${KV}.tar.bz
 	file://0001-stv090x-optimized-TS-sync-control.patch \
 	file://0002-mips-kernel-fpu-gcc7.patch \
 	file://0003-mips-kernel-ilog2-gcc7.patch \
-	file://kernel-gcc6.patch \
-	file://kernel-gcc7.patch \
 	file://2-2-stv090x-on-tuning-lock-return-correct-tuned-paramaters-like-freq-sr-fec-rolloff-etc.patch \
-	file://kernel-gcc8.patch \
-	file://kernel-add-support-for-gcc9.patch \
 	file://add-attributes-fix-modules-compile.patch \
 	file://makefile-silence-warnings.patch \
 	file://defconfig \
@@ -47,10 +42,6 @@ KERNEL_OBJECT_SUFFIX = "ko"
 KERNEL_IMAGEDEST = "/tmp"
 
 FILES:${KERNEL_PACKAGE_NAME}-image = "${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}.gz"
-
-do_configure:prepend() {
-	oe_machinstall -m 0644 ${WORKDIR}/${MACHINE}_defconfig ${WORKDIR}/defconfig
-}
 
 kernel_do_install:append() {
 	install -d ${D}/${KERNEL_IMAGEDEST}

@@ -1,5 +1,5 @@
 DESCRIPTION = "Linux kernel for ${MACHINE}"
-LICENSE = "GPLv2"
+LICENSE = "GPL-2.0-only"
 SECTION = "kernel"
 KV = "4.1.20"
 PR_INC = ".1"
@@ -16,9 +16,6 @@ SRC_URI += "http://code.vuplus.com/download/release/kernel/stblinux-${KSRC_VER}.
 	file://linux_dvb-core.patch \
 	file://bcmgenet-recovery-fix.patch \
 	${@bb.utils.contains("MACHINE_FEATURES", "dvbproxy", "file://linux_dvb_adapter.patch", "", d)} \
-	file://kernel-gcc6.patch \
-	file://kernel-gcc7.patch \
-	file://kernel-gcc8.patch \
 	file://0001-regmap-add-regmap_write_bits.patch \
 	file://0002-af9035-fix-device-order-in-ID-list.patch \
 	file://0003-Add-support-for-dvb-usb-stick-Hauppauge-WinTV-soloHD.patch \
@@ -62,10 +59,6 @@ KERNEL_OBJECT_SUFFIX = "ko"
 KERNEL_IMAGEDEST = "tmp"
 
 FILES:${KERNEL_PACKAGE_NAME}-image = "/${KERNEL_IMAGEDEST}/zImage"
-
-do_configure:prepend() {
-	oe_machinstall -m 0644 ${WORKDIR}/${MACHINE}_defconfig ${WORKDIR}/defconfig
-}
 
 kernel_do_install:append() {
         install -d ${D}/${KERNEL_IMAGEDEST}
