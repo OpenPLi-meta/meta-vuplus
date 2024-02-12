@@ -31,7 +31,7 @@ SRC_URI += "http://code.vuplus.com/download/release/kernel/stblinux-${KV}.tar.bz
 	file://kernel-gcc8.patch \
 	${@bb.utils.contains("MACHINE_FEATURES", "dvbproxy", "file://linux_dvb_adapter.patch", "", d)} \
 	file://kernel-add-support-for-gcc9.patch \
-	file://${MACHINE}_defconfig \
+	file://defconfig \
 	"
 
 inherit kernel machine_kernel_pr

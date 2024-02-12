@@ -32,7 +32,7 @@ SRC_URI += "http://code.vuplus.com/download/release/kernel/stblinux-${KV}.tar.bz
 	file://kernel-add-support-for-gcc9.patch \
 	file://add-attributes-fix-modules-compile.patch \
 	file://makefile-silence-warnings.patch \
-	file://${MACHINE}_defconfig \
+	file://defconfig \
 	"
 
 inherit kernel machine_kernel_pr
