@@ -15,8 +15,6 @@ KSRC_VER = "4.1-1.17"
 SRC_URI += "http://code.vuplus.com/download/release/kernel/stblinux-${KSRC_VER}.tar.bz2 \
 	file://linux_dvb-core.patch \
 	${@bb.utils.contains("MACHINE_FEATURES", "dvbproxy", "file://linux_dvb_adapter.patch", "", d)} \
-	file://kernel-gcc6.patch \
-	file://kernel-gcc7.patch \
 	file://0001-regmap-add-regmap_write_bits.patch \
 	file://0002-af9035-fix-device-order-in-ID-list.patch \
 	file://0003-Add-support-for-dvb-usb-stick-Hauppauge-WinTV-soloHD.patch \
@@ -45,7 +43,6 @@ SRC_URI += "http://code.vuplus.com/download/release/kernel/stblinux-${KSRC_VER}.
 	file://0002-log2-give-up-on-gcc-constant-optimizations.patch \
 	file://0003-dont-mark-register-as-const.patch \
 	file://0004-make-yyloc-declaration-extern.patch \
-	file://kernel-add-support-for-gcc9.patch \
 	file://${MACHINE}_defconfig \
 	"
 
