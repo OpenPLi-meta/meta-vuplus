@@ -28,7 +28,7 @@ SRC_URI += "https://source.mynonpublic.com/vuplus/release/kernel/stblinux-${KSRC
 	file://0003-3.x-uaccess-dont-mark-register-as-const.patch \
 	file://0004-make-yyloc-declaration-extern.patch \
 	file://0006-makefile-disable-warnings.patch \
-	file://${MACHINE}_defconfig \
+	file://defconfig \
 	"
 
 inherit kernel machine_kernel_pr

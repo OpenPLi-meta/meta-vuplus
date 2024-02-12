@@ -27,7 +27,7 @@ SRC_URI += "https://source.mynonpublic.com/vuplus/release/kernel/stblinux-${KV}.
 	file://2-2-stv090x-on-tuning-lock-return-correct-tuned-paramaters-like-freq-sr-fec-rolloff-etc.patch \
 	file://add-attributes-fix-modules-compile.patch \
 	file://makefile-silence-warnings.patch \
-	file://${MACHINE}_defconfig \
+	file://defconfig \
 	"
 
 inherit kernel machine_kernel_pr

@@ -44,7 +44,8 @@ SRC_URI += "https://source.mynonpublic.com/vuplus/release/kernel/stblinux-${KSRC
 	file://0002-log2-give-up-on-gcc-constant-optimizations.patch \
 	file://0003-dont-mark-register-as-const.patch \
 	file://0004-make-yyloc-declaration-extern.patch \
-	file://${MACHINE}_defconfig \
+	file://kernel-add-support-for-gcc9.patch \
+	file://defconfig \
 	"
 
 inherit kernel machine_kernel_pr
