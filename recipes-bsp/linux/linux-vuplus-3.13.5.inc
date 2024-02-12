@@ -26,7 +26,8 @@ SRC_URI += "http://code.vuplus.com/download/release/kernel/stblinux-${KV}.tar.bz
 	file://2-2-stv090x-on-tuning-lock-return-correct-tuned-paramaters-like-freq-sr-fec-rolloff-etc.patch \
 	file://hvr-9x5-19x5-22x5-kernel-3.13.patch \
 	${@bb.utils.contains("MACHINE_FEATURES", "dvbproxy", "file://linux_dvb_adapter.patch", "", d)} \
-	file://${MACHINE}_defconfig \
+	file://kernel-add-support-for-gcc9.patch \
+	file://defconfig \
 	"
 
 inherit kernel machine_kernel_pr
