@@ -24,13 +24,9 @@ SRC_URI += "https://source.mynonpublic.com/vuplus/release/kernel/stblinux-${KSRC
 	file://0001-stv090x-optimized-TS-sync-control.patch \
 	file://2-2-stv090x-on-tuning-lock-return-correct-tuned-paramaters-like-freq-sr-fec-rolloff-etc.patch \
 	${@bb.utils.contains("MACHINE_FEATURES", "dvbproxy", "file://linux_dvb_adapter.patch", "", d)} \
-	file://kernel-gcc6.patch \
-	file://kernel-gcc7.patch \
-	file://kernel-gcc8.patch \
 	file://0003-mips-kernel-ilog2-gcc7.patch \
 	file://0003-3.x-uaccess-dont-mark-register-as-const.patch \
 	file://0004-make-yyloc-declaration-extern.patch \
-	file://kernel-add-support-for-gcc9.patch \
 	file://0006-makefile-disable-warnings.patch \
 	file://${MACHINE}_defconfig \
 	"
