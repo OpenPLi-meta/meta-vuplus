@@ -1,7 +1,7 @@
 SUMMARY = "media tree drivers for hmp-usb-dvb-t2-c"
 HOMEPAGE = "http://linuxtv.org/"
 SECTION = "kernel/modules"
-LICENSE = "GPLv2"
+LICENSE = "GPL-2.0-only"
 
 COMPATIBLE_MACHINE = "^(vuzero4k|vuuno4kse|vuduo4k)$"
 
