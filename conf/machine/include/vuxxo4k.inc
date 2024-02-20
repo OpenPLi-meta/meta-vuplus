@@ -49,7 +49,7 @@ IMAGE_FSTYPES ?= "tar.bz2"
 IMAGEDIR ?= "${MACHINE}"
 IMGDEPLOYDIR ?= "${DEPLOY_DIR_IMAGE}"
 
-IMAGE_CMD_tar:prepend = " \
+IMAGE_CMD:tar:prepend = " \
 		mkdir -p ${IMGDEPLOYDIR}/vuplus/${UPDATE_DIR}; \
 		cp -f ${IMAGE_ROOTFS}/tmp/zImage ${IMGDEPLOYDIR}/vuplus/${UPDATE_DIR}/kernel_auto.bin; \
 		cp -f ${IMAGE_ROOTFS}/boot/initrd_auto.bin ${IMGDEPLOYDIR}/vuplus/${UPDATE_DIR}/initrd_auto.bin; \
