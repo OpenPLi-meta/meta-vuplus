@@ -3,6 +3,7 @@ LICENSE = "GPL-2.0-only"
 SECTION = "kernel"
 KV = "3.9.6"
 PR_INC = ".5"
+COMPATIBLE_MACHINE = "^(vuduo|vusolo|vuultimo|vuuno)$"
 
 SRC_URI[md5sum] = "33142378c8387a87190156be1cb1a254"
 SRC_URI[sha256sum] = "47799db9e2658906e532981ec8111a915426b8453762561029733f2406c3e297"
@@ -35,18 +36,17 @@ inherit kernel machine_kernel_pr
 S = "${WORKDIR}/linux"
 
 export OS = "Linux"
-KERNEL_IMAGETYPE = "vmlinux"
-KERNEL_OUTPUT = "vmlinux"
-KERNEL_OUTPUT_DIR = "."
 KERNEL_OBJECT_SUFFIX = "ko"
-KERNEL_IMAGEDEST = "/tmp"
+KERNEL_OUTPUT = "vmlinux"
+KERNEL_IMAGETYPE = "vmlinux"
+KERNEL_IMAGEDEST = "tmp"
 
-FILES:${KERNEL_PACKAGE_NAME}-image = "${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}.gz"
+FILES:${KERNEL_PACKAGE_NAME}-image = "/${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}.gz"
 
 kernel_do_install:append() {
 	install -d ${D}/${KERNEL_IMAGEDEST}
-	install -m 0755 ${KERNEL_OUTPUT} ${D}${KERNEL_IMAGEDEST}
-	gzip ${D}${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}
+	install -m 0755 ${KERNEL_OUTPUT} ${D}/${KERNEL_IMAGEDEST}
+	gzip ${D}/${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}
 }
 
 kernel_do_compile() {
