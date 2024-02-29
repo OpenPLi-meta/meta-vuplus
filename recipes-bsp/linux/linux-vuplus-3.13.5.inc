@@ -4,6 +4,8 @@ SECTION = "kernel"
 KV = "3.13.5"
 PR_INC = ".7"
 
+inherit kernel machine_kernel_pr
+
 SRC_URI[md5sum] = "19e9956653437b99b4fa6ec3e16a3e99"
 SRC_URI[sha256sum] = "ef7fb307582ff243aacff8a13025fe028634aaf650ada309991ae03622962f61"
 
@@ -29,8 +31,6 @@ SRC_URI += "https://source.mynonpublic.com/vuplus/release/kernel/stblinux-${KV}.
 	file://defconfig \
 	"
 
-inherit kernel machine_kernel_pr
-
 S = "${WORKDIR}/linux"
 
 export OS = "Linux"
@@ -43,7 +43,7 @@ KERNEL_IMAGEDEST = "tmp"
 KERNEL_EXTRA_ARGS = "EXTRA_CFLAGS=-Wno-attribute-alias"
 KERNEL_PACKAGE_NAME = "kernel"
 
-FILES:${KERNEL_PACKAGE_NAME}-image = "${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}.gz"
+FILES:${KERNEL_PACKAGE_NAME}-image = "/${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}.gz"
 
 do_configure:prepend() {
 	if ${@bb.utils.contains("MACHINE_FEATURES", 'dvbproxy', 'true', 'false', d)}; then
@@ -52,9 +52,9 @@ do_configure:prepend() {
 }
 
 kernel_do_install:append() {
-	${STRIP} ${D}/${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}-${KERNEL_VERSION}
-	gzip -9c ${D}/${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}-${KERNEL_VERSION} > ${D}/${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}.gz
-	rm ${D}/${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}-${KERNEL_VERSION}
+    ${STRIP} ${D}/${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}-${KERNEL_VERSION}
+    gzip -9c ${D}/${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}-${KERNEL_VERSION} > ${D}/${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}.gz
+    rm ${D}/${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}-${KERNEL_VERSION}
 }
 
 pkg_postinst:kernel-image () {
@@ -66,5 +66,7 @@ pkg_postinst:kernel-image () {
 	true
 }
 
+do_rm_work() {
+}
 # extra tasks
 addtask kernel_link_images after do_compile before do_install
