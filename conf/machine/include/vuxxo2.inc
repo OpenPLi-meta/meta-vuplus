@@ -3,7 +3,6 @@ MACHINE_FEATURES_BACKFILL_CONSIDERED = "rtc"
 
 MACHINE_ESSENTIAL_EXTRA_RDEPENDS = " \
 	${@bb.utils.contains("MACHINE_FEATURES", "dvbproxy", "vuplus-dvb-proxy-${MACHINE} libgles-${MACHINE} vuplus-platform-util-${MACHINE}", "vuplus-dvb-modules-${MACHINE}", d)} \
-	gstreamer1.0-libav \
 "
 
 KERNEL_MODULE_AUTOLOAD += "xfs"
@@ -11,6 +10,7 @@ KERNEL_MODULE_AUTOLOAD += "xfs"
 MACHINE_EXTRA_RRECOMMENDS += " \
 	vuplus-shutdown \
 	gst-plugin-dvbmediasink \
+	gstreamer1.0-libav \
 	ntfs-3g \
 "
 
@@ -51,16 +51,16 @@ UBINIZE_ARGS = "-m 2048 -p 128KiB"
 
 IMAGEDIR ?= "${MACHINE}"
 IMGDEPLOYDIR ?= "${DEPLOY_DIR_IMAGE}"
-EXTRA_IMAGECMD_COMPAT = " --eraseblock=0x20000 -n -l "
+EXTRA_IMAGECMD_COMPAT = "--eraseblock=0x20000 -n -l"
 
-IMAGE_CMD:ubifs:prepend = " \
+IMAGE_CMD:ubifs =+ " \
 	cp -f ${IMAGE_ROOTFS}/tmp/vmlinux.gz ${IMGDEPLOYDIR}/${IMAGE_NAME}.vmlinux.gz; \
 	cp -f ${IMAGE_ROOTFS}/boot/initrd_cfe_auto.bin ${IMGDEPLOYDIR}/${IMAGE_NAME}.initrd_cfe_auto.bin; \
 	rm -rf ${IMAGE_ROOTFS}/boot/*; \
 	rm -Rf ${IMAGE_ROOTFS}/tmp/*; \
 "
 
-IMAGE_CMD:ubi:append = " \
+IMAGE_CMD:ubi += " \
 	mkdir -p ${IMGDEPLOYDIR}/vuplus/${UPDATE_DIR}; \
 	cp -f ${IMGDEPLOYDIR}/${IMAGE_NAME}.rootfs.ubi ${IMGDEPLOYDIR}/vuplus/${UPDATE_DIR}/root_cfe_auto.bin; \
 	cp -f ${IMGDEPLOYDIR}/${IMAGE_NAME}.vmlinux.gz ${IMGDEPLOYDIR}/vuplus/${UPDATE_DIR}/kernel_cfe_auto.bin; \
