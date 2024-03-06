@@ -51,23 +51,30 @@ UBINIZE_ARGS = "-m 2048 -p 128KiB"
 
 IMAGEDIR ?= "${MACHINE}"
 IMGDEPLOYDIR ?= "${DEPLOY_DIR_IMAGE}"
-EXTRA_IMAGECMD_COMPAT = "--eraseblock=0x20000 -n -l"
+EXTRA_IMAGECMD_COMPAT = " --eraseblock=0x20000 -n -l "
 
-IMAGE_CMD:ubifs =+ " \
-	cp -f ${IMAGE_ROOTFS}/tmp/vmlinux.gz ${IMGDEPLOYDIR}/${IMAGE_NAME}.vmlinux.gz; \
-	cp -f ${IMAGE_ROOTFS}/boot/initrd_cfe_auto.bin ${IMGDEPLOYDIR}/${IMAGE_NAME}.initrd_cfe_auto.bin; \
+IMAGE_CMD:ubifs:prepend = " \
+	mkdir -p ${IMAGE_ROOTFS}/usr/lib; \
+	if [ "${PACKAGE_LIST}" = "1" ]; then \
+	cp ${IMAGE_MANIFEST} ${IMAGE_ROOTFS}/usr/lib/package.lst; \
+	fi; \
 	rm -rf ${IMAGE_ROOTFS}/boot/*; \
-	rm -Rf ${IMAGE_ROOTFS}/tmp/*; \
-"
+	rm -rf ${IMAGE_ROOTFS}/tmp/*; \
+	"
 
-IMAGE_CMD:ubi += " \
+IMAGE_CMD:ubi:append = " \
 	mkdir -p ${IMGDEPLOYDIR}/vuplus/${UPDATE_DIR}; \
 	cp -f ${IMGDEPLOYDIR}/${IMAGE_NAME}.rootfs.ubi ${IMGDEPLOYDIR}/vuplus/${UPDATE_DIR}/root_cfe_auto.bin; \
-	cp -f ${IMGDEPLOYDIR}/${IMAGE_NAME}.vmlinux.gz ${IMGDEPLOYDIR}/vuplus/${UPDATE_DIR}/kernel_cfe_auto.bin; \
-	cp -f ${IMGDEPLOYDIR}/${IMAGE_NAME}.initrd_cfe_auto.bin ${IMGDEPLOYDIR}/vuplus/${UPDATE_DIR}/initrd_cfe_auto.bin; \
+	gzip -f -9c ${DEPLOY_DIR_IMAGE}/vmlinux-${MACHINE}.bin > ${IMGDEPLOYDIR}/vuplus/${UPDATE_DIR}/${KERNEL_FILE}; \
+	touch ${IMGDEPLOYDIR}/vuplus/${UPDATE_DIR}/imageversion; \
 	touch ${IMGDEPLOYDIR}/vuplus/${UPDATE_DIR}/${FORCE_REBOOT_OPTION}.update; \
 	cd ${IMGDEPLOYDIR}; \
 	zip ${DISTRO_NAME}-${DISTRO_VERSION}-${MACHINE}_usb.zip vuplus/${UPDATE_DIR}/*; \
+	rm -f ${DEPLOY_DIR_IMAGE}/*.ubi; \
+	rm -f ${DEPLOY_DIR_IMAGE}/*.ubifs; \
+	rm -f ${DEPLOY_DIR_IMAGE}/*.manifest; \
+	rm -f ${DEPLOY_DIR_IMAGE}/.ubifs; \
+	rm -f ${DEPLOY_DIR_IMAGE}/.manifest; \
 	rm -rf vuplus; \
 "
 
