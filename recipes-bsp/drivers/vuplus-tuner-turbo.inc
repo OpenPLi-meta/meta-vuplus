@@ -22,9 +22,9 @@ RRECOMMENDS:${PN} = " \
     kernel-module-dvb-usb-cypress-firmware \
     "
 
-SRCDATE_arm = "20151104"
-FW_SRCDATE_arm = "20151104"
-SRC_URI_arm = " \
+SRCDATE:arm = "20151104"
+FW_SRCDATE:arm = "20151104"
+SRC_URI:arm = " \
     https://source.mynonpublic.com/vuplus/release/turbo/vuplus_tuner_turbo_driver_${PV}_${TARGET_ARCH}_${SRCDATE}.tar.gz;name=driver \
     https://source.mynonpublic.com/vuplus/release/turbo/vuplus_tuner_turbo_bin_fw_${TARGET_ARCH}_${FW_SRCDATE}.tar.gz;name=binfw_arm \
 "
