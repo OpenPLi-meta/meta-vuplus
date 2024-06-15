@@ -12,10 +12,10 @@ RDEPENDS_${PN} = "libgles-${MACHINE}"
 PV = "0.1.1"
 PR = "${SRCDATE}.${SRCDATE_PR}"
 
-SRC_URI = "http://code.vuplus.com/download/release/libvugles2/libvugles2-${PV}-${MACHINE}-${PR}.tar.gz"
-SRC_URI_vuduo2 = "http://code.vuplus.com/download/release/libvugles2/libvugles2-${PV}-${PR}.tar.gz"
-SRC_URI_vusolo2 = "http://code.vuplus.com/download/release/libvugles2/libvugles2-${PV}-${PR}.tar.gz"
-SRC_URI_vusolose = "http://code.vuplus.com/download/release/libvugles2/libvugles2-${PV}-${PR}.tar.gz"
+SRC_URI = "https://source.mynonpublic.com/vuplus/release/libvugles2/libvugles2-${PV}-${MACHINE}-${PR}.tar.gz"
+SRC_URI_vuduo2 = "https://source.mynonpublic.com/vuplus/release/libvugles2/libvugles2-${PV}-${PR}.tar.gz"
+SRC_URI_vusolo2 = "https://source.mynonpublic.com/vuplus/release/libvugles2/libvugles2-${PV}-${PR}.tar.gz"
+SRC_URI_vusolose = "https://source.mynonpublic.com/vuplus/release/libvugles2/libvugles2-${PV}-${PR}.tar.gz"
 
 S = "${WORKDIR}/libvugles2-${PV}"
 

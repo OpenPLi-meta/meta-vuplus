@@ -11,7 +11,7 @@ PN = "enigma2-plugin-systemplugins-bluetoothsetup"
 PR = "${SRCDATE}-py3.${SRCDATE_PR}"
 
 SRC_URI = " \
-    http://code.vuplus.com/download/release/bt/enigma2-plugin-bluetoothsetup-${MACHINE}-${PR}.tar.gz \
+    https://source.mynonpublic.com/vuplus/release/bt/enigma2-plugin-bluetoothsetup-${MACHINE}-${PR}.tar.gz \
 "
 
 S = "${WORKDIR}/plugin"

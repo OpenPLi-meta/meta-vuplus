@@ -6,7 +6,7 @@ LICENSE = "CLOSED"
 
 PV = "1.1"
 PR = "${SRCDATE}"
-SRC_URI = "http://code.vuplus.com/download/release/support/webkit-hbbtv-browser_${MACHINE}_${SRCDATE}.tar.gz"
+SRC_URI = "https://source.mynonpublic.com/vuplus/release/support/webkit-hbbtv-browser_${MACHINE}_${SRCDATE}.tar.gz"
 
 RDEPENDS_${PN} = "webkit-gtk libudev"
 

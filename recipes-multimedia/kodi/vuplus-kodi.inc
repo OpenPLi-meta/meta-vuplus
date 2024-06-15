@@ -12,7 +12,7 @@ RDEPENDS_${PN} = "libgles-${MACHINE}"
 RPROVIDES_${PN} = "libKodiGLESPL.so"
 RPROVIDES_${PN}_mipsarch = "libxbmc_base.so"
 
-SRC_URI = "http://code.vuplus.com/download/release/kodi/KodiGLESPL_${MACHINE}_${PKGDATE}.tar.gz"
+SRC_URI = "https://source.mynonpublic.com/vuplus/release/kodi/KodiGLESPL_${MACHINE}_${PKGDATE}.tar.gz"
 S = "${WORKDIR}/KodiGLESPL_${MACHINE}"
 
 SRC_URI_mipsarch = "http://code.vuplus.com/download/release/kodi/xbmc-support_${MACHINE}_${GLPR}.tar.gz"

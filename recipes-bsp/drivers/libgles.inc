@@ -11,7 +11,7 @@ PR="${SRCDATE}.${SRCDATE_PR}"
 S = "${WORKDIR}/libgles-${MACHINE}"
 
 # Closed source
-SRC_URI = "http://code.vuplus.com/download/release/libgles/libgles-${MACHINE}-${PV}-${PR}.tar.gz"
+SRC_URI = "https://source.mynonpublic.com/vuplus/release/libgles/libgles-${MACHINE}-${PV}-${PR}.tar.gz"
 
 SRC_URI += "git://github.com/KhronosGroup/EGL-Registry;branch=main;name=eglh;subpath=api;destsuffix=${S}/egl"
 SRCREV_eglh = "90b78b0662e2f0548cfd1926fb77bf628933541b"

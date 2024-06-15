@@ -11,7 +11,7 @@ RPROVIDES_${PN} += "libvupl"
 PV = "0.1.0"
 PR = "${SRCDATE}.${SRCDATE_PR}"
 
-SRC_URI = "http://code.vuplus.com/download/release/libvupl/libvupl-${PV}-${MACHINE}-${PR}.tar.gz"
+SRC_URI = "https://source.mynonpublic.com/vuplus/release/libvupl/libvupl-${PV}-${MACHINE}-${PR}.tar.gz"
 
 S = "${WORKDIR}/libvupl-${PV}-${MACHINE}"
 

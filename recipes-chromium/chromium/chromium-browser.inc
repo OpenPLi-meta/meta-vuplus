@@ -5,7 +5,7 @@ LICENSE = "CLOSED"
 
 PV = "1.2"
 PR = "${SRCDATE}"
-SRC_URI = "http://code.vuplus.com/download/chromium/chromium-vuplus_${MACHINE}_${SRCDATE}.tar.gz"
+SRC_URI = "https://source.mynonpublic.com/vuplus/chromium/chromium-vuplus_${MACHINE}_${SRCDATE}.tar.gz"
 
 # Added to support the OE-Alliance.
 #PREFERRED_VERSION_nss = "3.17.3"
