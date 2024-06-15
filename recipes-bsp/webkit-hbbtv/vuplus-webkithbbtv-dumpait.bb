@@ -14,7 +14,7 @@ PR = "r0"
 
 DEPENDS = "libdvbsi++"
 
-SRC_URI = "git://github.com/vuplus-com/dumpait.git;protocol=http"
+SRC_URI = "git://github.com/vuplus-com/dumpait.git;protocol=https"
 
 S = "${WORKDIR}/git"
 DESTDIR = "enigma2/python/Plugins/Extensions/WebkitHbbTV"
