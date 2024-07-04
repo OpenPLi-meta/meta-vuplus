@@ -19,6 +19,8 @@ SRCREV_eglh = "90b78b0662e2f0548cfd1926fb77bf628933541b"
 SRC_URI += "git://github.com/KhronosGroup/OpenGL-Registry;branch=main;name=openglh;subpath=api;destsuffix=${S}/opengl;protocol=https"
 SRCREV_openglh = "8261133c2645aaeef880c5f5a6e327f399bc9d04"
 
+SRCREV_FORMAT = "libgles"
+
 # BEGL patch for eglplatform.h
 SRC_URI:append_vuduo2 = " file://vuxxo2-BEGL.patch"
 SRC_URI:append_vusolo2 = " file://vuxxo2-BEGL.patch"
