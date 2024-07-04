@@ -10,8 +10,10 @@ RDEPENDS_${PN} = "vuplus-bluetooth-util libusb-compat"
 PN = "enigma2-plugin-systemplugins-bluetoothsetup"
 PR = "${SRCDATE}-py3.${SRCDATE_PR}"
 
+FILESEXTRAPATHS_prepend := "bluetoothsetup"
+
 SRC_URI = " \
-    https://source.mynonpublic.com/vuplus/release/bt/enigma2-plugin-bluetoothsetup-${MACHINE}-${PR}.tar.gz \
+    file://enigma2-plugin-bluetoothsetup-${MACHINE}-${PR}.tar.gz \
 "
 
 S = "${WORKDIR}/plugin"
