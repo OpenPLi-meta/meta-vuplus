@@ -10,8 +10,8 @@ PACKAGES = "vuplus-blindscan-utils-${MACHINE}-dbg \
             "
 
 PROVIDES += "virtual/blindscan-dvbs virtual/blindscan-dvbc"
-RPROVIDES:vuplus-blindscan-dvbs-utils-${MACHINE} += "virtual/blindscan-dvbs"
-RPROVIDES:vuplus-blindscan-dvbc-utils-${MACHINE} += "virtual/blindscan-dvbc"
+RPROVIDES:vuplus-blindscan-dvbs-utils-${MACHINE} += "virtual-blindscan-dvbs"
+RPROVIDES:vuplus-blindscan-dvbc-utils-${MACHINE} += "virtual-blindscan-dvbc"
 
 PV = "5.1"
 PR = "r0"
