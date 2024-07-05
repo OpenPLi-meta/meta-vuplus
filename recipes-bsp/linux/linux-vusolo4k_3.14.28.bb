@@ -5,8 +5,6 @@ MACHINE_KERNEL_PR:append = "${PR_INC}.2"
 SRC_URI += "\
 	file://linux_rpmb_not_alloc.patch \
 	file://fix_mmc_3.14.28-1.10.patch \
-	file://0019-fix-build-binutils241.patch \
-	file://fix-linker-issue-undefined-reference.patch \
 "
 
 COMPATIBLE_MACHINE = "vusolo4k"
