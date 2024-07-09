@@ -73,3 +73,5 @@ FILES:vuplus-blindscan-dvbc-utils-${MACHINE} = "\
         ${bindir}/tt2l08_t2_scan \
         ${bindir}/bcm3466 \
         "
+
+INSANE_SKIP = "32bit-time"
