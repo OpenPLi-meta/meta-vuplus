@@ -21,3 +21,4 @@ do_install() {
         update-rc.d -r ${D} vuplus-shutdown start 89 0 .
 }
 
+INSANE_SKIP = "32bit-time"
