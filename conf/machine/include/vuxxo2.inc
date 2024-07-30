@@ -64,7 +64,7 @@ IMAGE_CMD:ubifs:prepend = " \
 
 IMAGE_CMD:ubi:append = " \
 	mkdir -p ${IMGDEPLOYDIR}/vuplus/${UPDATE_DIR}; \
-	cp -f ${IMGDEPLOYDIR}/${IMAGE_NAME}.rootfs.ubi ${IMGDEPLOYDIR}/vuplus/${UPDATE_DIR}/root_cfe_auto.bin; \
+	cp -f ${IMGDEPLOYDIR}/${IMAGE_NAME}.ubi ${IMGDEPLOYDIR}/vuplus/${UPDATE_DIR}/root_cfe_auto.bin; \
 	gzip -f -9c ${DEPLOY_DIR_IMAGE}/vmlinux-${MACHINE}.bin > ${IMGDEPLOYDIR}/vuplus/${UPDATE_DIR}/${KERNEL_FILE}; \
 	touch ${IMGDEPLOYDIR}/vuplus/${UPDATE_DIR}/imageversion; \
 	touch ${IMGDEPLOYDIR}/vuplus/${UPDATE_DIR}/${FORCE_REBOOT_OPTION}.update; \
