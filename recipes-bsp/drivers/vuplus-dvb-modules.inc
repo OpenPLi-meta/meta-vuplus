@@ -6,7 +6,7 @@ LICENSE = "CLOSED"
 KV = "3.9.6"
 PV = "${KV}+${SRCDATE}"
 
-SRC_URI = "https://source.mynonpublic.com/vulplus/release/vuplus-dvb-modules/vuplus-dvb-modules-${DOWNLOADMACHINE}-${KV}-${SRCDATE}.tar.gz"
+SRC_URI = "https://source.mynonpublic.com/vuplus/release/vuplus-dvb-modules/vuplus-dvb-modules-${DOWNLOADMACHINE}-${KV}-${SRCDATE}.tar.gz"
 
 S = "${WORKDIR}"
 
