@@ -37,12 +37,12 @@ PLUGABLE_MODEL_BLINDSCAN = " \
         bcm3466 \
         "
 
-PLUGABLE_MODEL_BLINDSCAN:remove_vusolo4k = "bcm3148 bcm3466"
-PLUGABLE_MODEL_BLINDSCAN_vuduo4k = "bcm3148 bcm3466"
-PLUGABLE_MODEL_BLINDSCAN_vuduo4kse = "bcm3148 bcm3466"
-PLUGABLE_MODEL_BLINDSCAN_vuuno4k = "bcm3148 bcm3466"
-PLUGABLE_MODEL_BLINDSCAN_vuuno4kse = "bcm3148 bcm3466"
-PLUGABLE_MODEL_BLINDSCAN_vuzero4k = "tt2l08b tt2l08b_t2_scan vuplus_si2166_blindscan"
+PLUGABLE_MODEL_BLINDSCAN:remove:vusolo4k = "bcm3148 bcm3466"
+PLUGABLE_MODEL_BLINDSCAN:vuduo4k = "bcm3148 bcm3466"
+PLUGABLE_MODEL_BLINDSCAN:vuduo4kse = "bcm3148 bcm3466"
+PLUGABLE_MODEL_BLINDSCAN:vuuno4k = "bcm3148 bcm3466"
+PLUGABLE_MODEL_BLINDSCAN:vuuno4kse = "bcm3148 bcm3466"
+PLUGABLE_MODEL_BLINDSCAN:vuzero4k = "tt2l08b tt2l08b_t2_scan vuplus_si2166_blindscan"
 
 do_install() {
         install -d "${D}${bindir}"

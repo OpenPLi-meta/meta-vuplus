@@ -36,10 +36,10 @@ PLUGABLE_MODEL_BLINDSCAN = "\
         tt2l08_t2_scan \
         "
 
-PLUGABLE_MODEL_BLINDSCAN_vuduo = "tda1002x"
-PLUGABLE_MODEL_BLINDSCAN_vusolo = "tda1002x"
-PLUGABLE_MODEL_BLINDSCAN_vuzero = "tda1002x"
-PLUGABLE_MODEL_BLINDSCAN_vusolo2 = "tda1002x vuplus_bcm7346_blindscan"
+PLUGABLE_MODEL_BLINDSCAN:vuduo = "tda1002x"
+PLUGABLE_MODEL_BLINDSCAN:vusolo = "tda1002x"
+PLUGABLE_MODEL_BLINDSCAN:vuzero = "tda1002x"
+PLUGABLE_MODEL_BLINDSCAN:vusolo2 = "tda1002x vuplus_bcm7346_blindscan"
 
 do_install() {
         install -d "${D}${bindir}"
