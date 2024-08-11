@@ -42,6 +42,7 @@ PREFERRED_PROVIDER_virtual/blindscan-dvbs = "vuplus-blindscan-utils-${MACHINE}"
 
 PREFERRED_PROVIDER_virtual/egl = "libgles-${MACHINE}"
 PREFERRED_PROVIDER_virtual/libgles2 = "libgles-${MACHINE}"
+PREFERRED_PROVIDER_virtual/kodi = "stb-kodi-${MACHINE}"
 
 IMAGE_FSTYPES ?= "ubi"
 
@@ -83,10 +84,6 @@ MACHINE_FEATURES:remove_vuzero = "vuplus-mipsel"
 
 OPENPLI_FEATURES += "kodi"
 OPENPLI_FEATURES:remove_vuzero = "kodi"
-
-# xbmc/kodi-support
-DEPENDS:append:pn-kodi = " vuplus-kodi-${MACHINE}"
-RDEPENDS:kodi:append = " vuplus-kodi-${MACHINE}"
 
 require conf/machine/include/mips/tune-mips32.inc
 
