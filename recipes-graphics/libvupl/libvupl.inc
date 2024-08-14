@@ -1,14 +1,14 @@
 DESCRIPTION = "Vu+ API for EGL/OpenGLES"
 SECTION = "libs"
 LICENSE = "CLOSED"
-PACKAGE_ARCH = "${MACHINE_ARCH}"
+require conf/license/license-close.inc
+PACKAGE_ARCH := "${MACHINE_ARCH}"
 
-RDEPENDS:${PN} = "libgles-${MACHINE}"
+RDEPENDS:${PN} = "vuplus-libgles-${MACHINE}"
 
 PROVIDES += "libvupl"
 RPROVIDES:${PN} += "libvupl"
 
-PV = "0.1.0"
 PR = "${SRCDATE}.${SRCDATE_PR}"
 
 SRC_URI = "https://source.mynonpublic.com/vuplus/release/libvupl/libvupl-${PV}-${MACHINE}-${PR}.tar.gz"
@@ -32,3 +32,5 @@ INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
 
 SOLIBS = ".so"
 FILES_SOLIBSDEV = ""
+
+INSANE_SKIP:${PN} = "ldflags"
