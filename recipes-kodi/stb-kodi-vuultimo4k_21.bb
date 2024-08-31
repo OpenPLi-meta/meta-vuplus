@@ -8,3 +8,4 @@ RPROVIDES:${PN} += "virtual-kodi"
 PROVIDES += "kodi"
 RPROVIDES:${PN} += "kodi"
 
+INSANE_SKIP:${PN} += "file-rdeps"
