@@ -68,6 +68,6 @@ IMAGE_CMD:tar:prepend = " \
 "
 
 MACHINE_FEATURES += "alsa usbhost wlan 3dtv switchoff osdposition hdmicec vuplus-cortexa15"
-# OPENPLI_FEATURES += "kodi"
+OPENPLI_FEATURES += "kodi"
 
 require conf/machine/include/arm/arch-armv7a.inc
