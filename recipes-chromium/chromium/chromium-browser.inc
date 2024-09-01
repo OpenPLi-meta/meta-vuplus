@@ -38,3 +38,4 @@ FILES:${PN} = "/"
 
 INHIBIT_PACKAGE_STRIP = "1"
 
+INSANE_SKIP:${PN} = "already-stripped"
