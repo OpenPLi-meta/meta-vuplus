@@ -80,10 +80,10 @@ IMAGE_CMD:ubi:append = " \
 "
 
 MACHINE_FEATURES += "alsa usbhost wlan 3dtv switchoff osdposition hdmicec fan vuplus-mipsel"
-MACHINE_FEATURES:remove_vuzero = "vuplus-mipsel"
+MACHINE_FEATURES:remove:vuzero = "vuplus-mipsel"
 
 OPENPLI_FEATURES += "kodi"
-OPENPLI_FEATURES:remove_vuzero = "kodi"
+OPENPLI_FEATURES:remove:vuzero = "kodi"
 
 require conf/machine/include/mips/tune-mips32.inc
 

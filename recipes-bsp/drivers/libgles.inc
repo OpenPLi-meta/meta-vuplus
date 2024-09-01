@@ -22,9 +22,9 @@ SRCREV_openglh = "8261133c2645aaeef880c5f5a6e327f399bc9d04"
 SRCREV_FORMAT = "libgles"
 
 # BEGL patch for eglplatform.h
-SRC_URI:append_vuduo2 = " file://vuxxo2-BEGL.patch"
-SRC_URI:append_vusolo2 = " file://vuxxo2-BEGL.patch"
-SRC_URI:append_vusolose = " file://vuxxo2-BEGL.patch"
+SRC_URI:append:vuduo2 = " file://vuxxo2-BEGL.patch"
+SRC_URI:append:vusolo2 = " file://vuxxo2-BEGL.patch"
+SRC_URI:append:vusolose = " file://vuxxo2-BEGL.patch"
 
 INHIBIT_PACKAGE_STRIP = "1"
 PRIVATE_LIBS:${PN} = "libEGL.so \

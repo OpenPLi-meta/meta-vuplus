@@ -3,9 +3,9 @@ SECTION = "libs"
 LICENSE = "CLOSED"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-DEPENDS_vuduo2 = "libgles-${MACHINE}"
-DEPENDS_vusolo2 = "libgles-${MACHINE}"
-DEPENDS_vusolose = "libgles-${MACHINE}"
+DEPENDS:vuduo2 = "libgles-${MACHINE}"
+DEPENDS:vusolo2 = "libgles-${MACHINE}"
+DEPENDS:vusolose = "libgles-${MACHINE}"
 
 RDEPENDS:${PN} = "libgles-${MACHINE}"
 
@@ -13,9 +13,9 @@ PV = "0.1.1"
 PR = "${SRCDATE}.${SRCDATE_PR}"
 
 SRC_URI = "https://source.mynonpublic.com/vuplus/release/libvugles2/libvugles2-${PV}-${MACHINE}-${PR}.tar.gz"
-SRC_URI_vuduo2 = "https://source.mynonpublic.com/vuplus/release/libvugles2/libvugles2-${PV}-${PR}.tar.gz"
-SRC_URI_vusolo2 = "https://source.mynonpublic.com/vuplus/release/libvugles2/libvugles2-${PV}-${PR}.tar.gz"
-SRC_URI_vusolose = "https://source.mynonpublic.com/vuplus/release/libvugles2/libvugles2-${PV}-${PR}.tar.gz"
+SRC_URI:vuduo2 = "https://source.mynonpublic.com/vuplus/release/libvugles2/libvugles2-${PV}-${PR}.tar.gz"
+SRC_URI:vusolo2 = "https://source.mynonpublic.com/vuplus/release/libvugles2/libvugles2-${PV}-${PR}.tar.gz"
+SRC_URI:vusolose = "https://source.mynonpublic.com/vuplus/release/libvugles2/libvugles2-${PV}-${PR}.tar.gz"
 
 S = "${WORKDIR}/libvugles2-${PV}"
 

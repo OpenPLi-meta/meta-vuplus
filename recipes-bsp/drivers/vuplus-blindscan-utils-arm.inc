@@ -51,7 +51,7 @@ do_install() {
         done
 }
 
-do_install:append_vuzero4k() {
+do_install:append:vuzero4k() {
         mv "${D}${bindir}/tt2l08b" "${D}${bindir}/tt2l08"
         mv "${D}${bindir}/tt2l08b_t2_scan" "${D}${bindir}/tt2l08_t2_scan"
 }
