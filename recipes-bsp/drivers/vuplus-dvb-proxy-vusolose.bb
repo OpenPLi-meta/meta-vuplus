@@ -2,6 +2,8 @@ require vuplus-dvb-proxy.inc
 
 COMPATIBLE_MACHINE = "^(vusolose)$"
 
+KV = "3.13.5"
+
 SRCDATE = "20190429"
 SRCDATE_PR = "r0"
 
