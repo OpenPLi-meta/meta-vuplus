@@ -1,5 +1,7 @@
 require vuplus-dvb-modules.inc
 
+KV = "3.9.6"
+
 DOWNLOADMACHINE = "${MACHINE}"
 
 SRCDATE = "20171204"
