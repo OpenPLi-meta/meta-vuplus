@@ -27,3 +27,6 @@ do_install:append() {
 
 SRC_URI[md5sum] = "fc0f909ad46dfb7f4d2ee73607c3dbbd"
 SRC_URI[sha256sum] = "240bfad0e6504d175a4f1266c077da12e9904ab310d92203ac2ff027f4eaeba0"
+
+INHIBIT_PACKAGE_STRIP = "1"
+INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
