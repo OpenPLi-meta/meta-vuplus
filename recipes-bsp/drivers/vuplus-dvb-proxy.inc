@@ -5,7 +5,7 @@ LICENSE = "CLOSED"
 PV = "${KV}"
 PR = "${SRCDATE}.${SRCDATE_PR}"
 
-SRC_URI = "https://source.mynonpublic.com/vuplus/release/vuplus-dvb-proxy/vuplus-dvb-proxy-${MACHINE}-${PV}-${PR}.tar.gz "
+SRC_URI = "http://downloads.openpli.org/archive/vuplus/vuplus-dvb-proxy-${MACHINE}-${PV}-${PR}.tar.gz"
 
 S = "${WORKDIR}"
 

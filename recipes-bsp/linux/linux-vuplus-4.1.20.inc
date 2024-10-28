@@ -12,7 +12,7 @@ LIC_FILES_CHKSUM = "file://${WORKDIR}/linux/COPYING;md5=d7810fab7487fb0aad327b76
 FILESEXTRAPATHS:prepend := "${THISDIR}/linux-vuplus-${KV}:"
 
 KSRC_VER = "4.1-1.9"
-SRC_URI += "https://source.mynonpublic.com/vuplus/release/kernel/stblinux-${KSRC_VER}.tar.bz2 \
+SRC_URI += "http://downloads.openpli.org/archive/vuplus/stblinux-${KSRC_VER}.tar.bz2 \
 	file://linux_dvb-core.patch \
 	file://bcmgenet-recovery-fix.patch \
 	${@bb.utils.contains("MACHINE_FEATURES", "dvbproxy", "file://linux_dvb_adapter.patch", "", d)} \

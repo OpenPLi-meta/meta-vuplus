@@ -8,12 +8,12 @@ PV = "1.0"
 PR = "${SRCDATE}_r1"
 SRC_REV = ""
 
-SRC_URI = "http://code.vuplus.com/download/release/openpli-support/vuplus-coldboot_${SRCDATE}.tar.gz"
+SRC_URI = "http://downloads.openpli.org/archive/vuplus/vuplus-coldboot_${SRCDATE}.tar.gz"
 
 do_install() {
 	install -d ${D}/etc/init.d \
 		${D}/usr/bin \
-        	${D}${sysconfdir}/rc0.d 
+        	${D}${sysconfdir}/rc0.d
 
 	install -m 0755 ${WORKDIR}/${PN}/coldboot.sh ${D}/etc/init.d/coldboot.sh
 	install -m 0755 ${WORKDIR}/${PN}/ethwol.sh ${D}/etc/init.d/ethwol.sh
