@@ -4,7 +4,7 @@ PRIORITY = "required"
 
 PR = "r7"
 
-SRC_URI = "https://source.mynonpublic.com/vuplus/release/kernel/vmlinuz-initrd_${MACHINE}_${SRCDATE}.tar.gz"
+SRC_URI = "http://downloads.openpli.org/archive/vuplus/vmlinuz-initrd_${MACHINE}_${SRCDATE}.tar.gz"
 
 FILES_${PN} = "/boot"
 
