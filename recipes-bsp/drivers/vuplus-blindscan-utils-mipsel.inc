@@ -66,4 +66,5 @@ FILES:vuplus-blindscan-dvbc-utils-${MACHINE} = "\
         "
 
 # tda1002x is stripped, just that one
-INSANE_SKIP = "already-stripped 32bit-time ldflags"
+INSANE_SKIP = "32bit-time ldflags"
+INSANE_SKIP:${PN} = "already-stripped"
