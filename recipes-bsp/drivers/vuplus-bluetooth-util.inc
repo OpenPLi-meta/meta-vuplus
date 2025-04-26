@@ -7,7 +7,7 @@ RPROVIDES_${PN} += "vuplus-bluetooth-util"
 
 PR="${SRCDATE}.${SRCDATE_PR}"
 
-FILESEXTRAPATHS := "${THISDIR}/vuplus-bluetooth-util:"
+FILESEXTRAPATHS_prepend := "${THISDIR}/vuplus-bluetooth-util:"
 
 SRC_URI = " \
     http://downloads.openpli.org/archive/vuplus/vuplus-bluetooth-util-${MACHINE}-${PR}.tar.gz \
