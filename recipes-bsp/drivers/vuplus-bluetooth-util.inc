@@ -7,8 +7,11 @@ RPROVIDES_${PN} += "vuplus-bluetooth-util"
 
 PR="${SRCDATE}.${SRCDATE_PR}"
 
+FILESEXTRAPATHS := "${THISDIR}/vuplus-bluetooth-util:"
+
 SRC_URI = " \
     http://downloads.openpli.org/archive/vuplus/vuplus-bluetooth-util-${MACHINE}-${PR}.tar.gz \
+    file://vuplus-bluetooth.conf \
 "
 
 S="${WORKDIR}/vuplus-bluetooth-util-${MACHINE}"
@@ -36,6 +39,9 @@ do_install() {
 		install -d ${D}/lib/firmware/${FIRMWARE_PATH}
 		install -m 0644 ${S}/${FIRMWARE_FILE} ${D}/lib/firmware/${FIRMWARE_PATH}
 	fi
+
+	install -d ${D}${sysconfdir}/modprobe.d
+	install -m 0664 ${S}/../vuplus-bluetooth.conf ${D}${sysconfdir}/modprobe.d
 }
 
 INSANE_SKIP_${PN} = "already-stripped"
