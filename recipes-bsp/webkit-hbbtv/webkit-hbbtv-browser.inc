@@ -37,7 +37,7 @@ do_package_qa() {
 PROVIDES += "webkit-hbbtv-browser"
 RPROVIDES:${PN} += "webkit-hbbtv-browser"
 
-PACKAGE_ARCH := "${MACHINE_ARCH}"
+PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 FILES:${PN} = "/"
 

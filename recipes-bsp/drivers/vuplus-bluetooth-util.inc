@@ -24,7 +24,7 @@ do_install() {
 do_package_qa() {
 }
 
-PACKAGE_ARCH := "${MACHINE_ARCH}"
+PACKAGE_ARCH = "${MACHINE_ARCH}"
 FILES:${PN}="/"
 
 do_install() {

@@ -22,7 +22,7 @@ do_install() {
 
 do_package_qa[noexec] = "1"
 
-PACKAGE_ARCH := "${MACHINE_ARCH}"
+PACKAGE_ARCH = "${MACHINE_ARCH}"
 FILES:${PN}="/"
 
 inherit update-rc.d

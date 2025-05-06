@@ -50,7 +50,7 @@ pkg_postinst:${PN} () {
     true
 }
 
-PACKAGE_ARCH := "${MACHINE_ARCH}"
+PACKAGE_ARCH = "${MACHINE_ARCH}"
 FILES:${PN} = "/"
 
 SRC_URI[binfw.md5sum] = "517a9d54e41fae16612bcfe431ef7a3e"

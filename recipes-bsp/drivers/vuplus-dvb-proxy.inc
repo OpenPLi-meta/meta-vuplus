@@ -28,5 +28,5 @@ pkg_postinst:${PN} () {
         true
 }
 
-PACKAGE_ARCH := "${MACHINE_ARCH}"
+PACKAGE_ARCH = "${MACHINE_ARCH}"
 FILES:${PN} = "/"
