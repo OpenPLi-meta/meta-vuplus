@@ -15,6 +15,7 @@ FILESEXTRAPATHS:prepend := "${THISDIR}/linux-vuplus-${KV}:"
 
 SRC_URI += "http://downloads.openpli.org/archive/vuplus/stblinux-${KV}.tar.bz2 \
 	file://nfs-max-rwsize-8k.patch \
+	file://build-with-gcc12-fixes.patch \
 	file://rt2800usb_fix_warn_tx_status_timeout_to_dbg.patch \
 	file://linux-tcp_output.patch \
 	file://linux-3.13-gcc-4.9.3-build-error-fixed.patch \
@@ -29,6 +30,7 @@ SRC_URI += "http://downloads.openpli.org/archive/vuplus/stblinux-${KV}.tar.bz2 \
 	file://hvr-9x5-19x5-22x5-kernel-3.13.patch \
 	${@bb.utils.contains("MACHINE_FEATURES", "dvbproxy", "file://linux_dvb_adapter.patch", "", d)} \
 	file://defconfig \
+	file://fix-build-with-binutils-2.41.patch \
 	"
 
 S = "${WORKDIR}/linux"
@@ -40,7 +42,7 @@ KERNEL_OUTPUT_DIR = "."
 KERNEL_OBJECT_SUFFIX = "ko"
 KERNEL_IMAGEDEST = "tmp"
 
-KERNEL_EXTRA_ARGS = "EXTRA_CFLAGS+=-Wno-attribute-alias EXTRA_CFLAGS+=-Wno-address EXTRA_CFLAGS+=-Wno-array-bounds"
+KERNEL_EXTRA_ARGS = "EXTRA_CFLAGS=-Wno-attribute-alias"
 KERNEL_PACKAGE_NAME = "kernel"
 
 FILES:${KERNEL_PACKAGE_NAME}-image = "/${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}.gz"

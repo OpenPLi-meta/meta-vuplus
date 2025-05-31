@@ -17,6 +17,7 @@ SRC_URI += "http://downloads.openpli.org/archive/vuplus/stblinux-${KV}.tar.bz2 \
 	file://fix_fuse_for_linux_mips_3-9.patch \
 	file://rt2800usb_fix_warn_tx_status_timeout_to_dbg.patch \
 	file://linux-3.9-gcc-4.9.3-build-error-fixed.patch \
+	file://build-with-gcc12-fixes.patch \
 	file://rtl8712-fix-warnings.patch \
 	file://rtl8187se-fix-warnings.patch \
 	file://0001-Support-TBS-USB-drivers-3.9.patch \
@@ -29,6 +30,7 @@ SRC_URI += "http://downloads.openpli.org/archive/vuplus/stblinux-${KV}.tar.bz2 \
 	file://add-attributes-fix-modules-compile.patch \
 	file://makefile-silence-warnings.patch \
 	file://defconfig \
+	file://fix-build-with-binutils-2.41.patch \
 	"
 
 inherit kernel machine_kernel_pr
