@@ -2,8 +2,8 @@ require vuplus-dvb-proxy.inc
 
 KV = "4.1.20"
 
-SRCDATE = "20210407"
-SRCDATE_PR = "r0"
+SRCDATE = "20250706"
+SRCDATE_PR = "r1"
 
 pkg_postinst_${PN}_append () {
 	if [ ! -f $D/lib/modules/${KERNEL_VERSION}/extra/dvb-bcm.ko ]; then
@@ -11,5 +11,5 @@ pkg_postinst_${PN}_append () {
 	fi
 }
 
-SRC_URI[md5sum] = "1f174b6801e3a394137004de05f0ae61"
-SRC_URI[sha256sum] = "939b1085a2c8833a6a83798bbff03bd46209fae34f103a1bb56f7109037a3bcf"
+SRC_URI[md5sum] = "a7b4ac6ecf943d8bd76141c6cfa8b541"
+SRC_URI[sha256sum] = "4905361097b7ae8aa5a8d445747a8b1df19a74d8880aef7a7c53e366f116bc6b"
